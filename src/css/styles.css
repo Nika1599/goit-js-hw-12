@@ -4,7 +4,6 @@
   | default @import url()
   |============================
 */
-@import url('./reset.css');
 @import url('./vite-promo.css');
 @import url('./header.css');
 
@@ -22,4 +21,108 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+}
+
+.js-picture-form {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+}
+
+.input-group .form-control {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px 0 0 4px;
+}
+
+.input-group .btn {
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+  border-left: none;
+  border-radius: 0 4px 4px 0;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+}
+
+.input-group .btn:hover {
+  background-color: #0056b3;
+}
+
+#gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.image-card {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  overflow: hidden;
+  width: 200px;
+  text-align: center;
+}
+
+.image-card img {
+  max-width: 100%;
+  height: auto;
+}
+
+.image-card p {
+  margin: 0;
+  padding: 10px;
+}
+
+.loader-wrapper {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+}
+
+.loader {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  border: 2px solid #ff3d00;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+.loader::after {
+  content: '';
+  box-sizing: border-box;
+  position: absolute;
+  left: 4px;
+  top: 4px;
+  border: 2px solid #fff;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
