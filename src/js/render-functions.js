@@ -5,9 +5,9 @@ import 'simplelightbox/dist/simple-lightbox.min.css';
 
 let lightbox;
 
-export function renderGallery(images) {
+export function renderGallery(images, append = false) {
   const gallery = document.getElementById('gallery');
-  gallery.innerHTML = images
+  const imagesHTML = images
     .map(
       image => `
       <a href="${image.largeImageURL}" data-lightbox="gallery">
@@ -19,6 +19,12 @@ export function renderGallery(images) {
     `
     )
     .join('');
+
+  if (append) {
+    gallery.insertAdjacentHTML('beforeend', imagesHTML);
+  } else {
+    gallery.innerHTML = imagesHTML;
+  }
 
   if (!lightbox) {
     lightbox = new SimpleLightbox('.gallery a', {
