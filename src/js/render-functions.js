@@ -10,7 +10,7 @@ export function renderGallery(images, append = false) {
   const imagesHTML = images
     .map(
       image => `
-      <a href="${image.largeImageURL}" data-lightbox="gallery">
+      <a href="${image.largeImageURL}" class="gallery-item" data-lightbox="gallery">
         <div class="image-card">
           <img src="${image.webformatURL}" alt="${image.tags}" />
           <p>${image.tags}</p>
@@ -27,7 +27,7 @@ export function renderGallery(images, append = false) {
   }
 
   if (!lightbox) {
-    lightbox = new SimpleLightbox('.gallery a', {
+    lightbox = new SimpleLightbox('.gallery-item', {
       /* options */
     });
   } else {
